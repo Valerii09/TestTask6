@@ -23,6 +23,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.SemanticsProperties.ImeAction
@@ -42,17 +43,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             TestTask6Theme {
                 // Используйте Column для вертикального размещения элементов
+                Column(
 
-                    // Поместите SearchActivity() внутри Column
-                    SearchActivity()
-
-                    // Добавьте кнопку после SearchActivity()
+                ) {
                     Button(
                         onClick = {
                             val intent = Intent(this@MainActivity, AddCarActivity::class.java)
                             startActivity(intent)
-                        },
-                        modifier = Modifier
+                        }, modifier = Modifier
                             .fillMaxWidth()
                             .padding(16.dp)
                     ) {
@@ -60,6 +58,9 @@ class MainActivity : ComponentActivity() {
                             text = "Добавить автомобиль",
                             textAlign = TextAlign.Center
                         )
+                    }
+                    // Поместите SearchActivity() внутри Column
+                    SearchActivity()
                     }
                 }
             }
